@@ -1,4 +1,4 @@
-# _Sample project_
+# _06_two_buttons_two_leds_
 
 (See the README.md file in the upper level 'examples' directory for more information about examples.)
 
