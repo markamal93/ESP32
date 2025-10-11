@@ -1,32 +1,33 @@
-# _Sample project_
+# ESP32 Buzzer Control Example (ESP-IDF)
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+This project demonstrates how to **control a buzzer using the ESP-IDF framework** and **FreeRTOS**.  
+It toggles the buzzer ON and OFF every 1 second, creating a simple beeping pattern.
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+---
 
+## 🧠 Overview
 
+The application configures a GPIO pin as an output to drive a buzzer.  
+It alternates the buzzer’s state (HIGH and LOW) with a 1-second delay between each toggle using FreeRTOS delays.  
+This example showcases how to use GPIO and timing functions in ESP-IDF to generate periodic signals.
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
+---
 
-## Example folder contents
+## ⚙️ Requirements
 
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
+- **ESP32 Development Board**  
+- **ESP-IDF Framework** (v5.0 or later)  
+- **Active or Passive Buzzer Module**  
+- **USB cable** and **serial monitor** for output observation  
 
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
+---
 
-Below is short explanation of remaining files in the project folder.
+## 🧩 How It Works
 
-```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
+1. The buzzer GPIO pin (default **GPIO5**) is configured as an output.  
+2. The program runs an infinite loop where it turns the buzzer ON for 1 second, then OFF for 1 second.  
+3. Timing is managed using the FreeRTOS `vTaskDelay()` function.  
+
+This results in a continuous beeping sound.
+
+---
