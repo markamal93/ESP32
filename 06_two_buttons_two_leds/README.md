@@ -1,18 +1,30 @@
 # ⚡ ESP32 – Two Buttons, Two LEDs Example (ESP-IDF)
 
-This project demonstrates how to control **two LEDs** using **two push buttons** on the **ESP32** with the **ESP-IDF** framework.  
-Each button independently controls one LED — when a button is pressed, its corresponding LED turns ON; when released, the LED turns OFF.
+**Description:**  
+A simple example showing how to control two LEDs using two push buttons on an **ESP32** board using the **ESP-IDF** framework.  
+Each button controls one LED — press the button to turn the LED ON, release it to turn it OFF.  
+This project demonstrates basic **GPIO input/output handling** in ESP-IDF.
+
+---
+
+## 🏷️ Project Details
+
+- **Framework:** ESP-IDF (FreeRTOS-based)  
+- **Language:** C  
+- **Platform:** ESP32  
+- **Difficulty Level:** Beginner  
+- **Category:** GPIO / Input-Output / Embedded Systems  
+- **License:** Public Domain (CC0)
+
+**Tags:**  
+`ESP32` · `ESP-IDF` · `FreeRTOS` · `Embedded C` · `GPIO` · `LED` · `Button` · `IoT Basics` · `Microcontroller`
 
 ---
 
 ## 🧠 Overview
 
-The project uses four GPIO pins:
-- Two configured as **outputs** for the LEDs.
-- Two configured as **inputs** for the buttons.
-
-The program continuously reads the button states and sets each LED accordingly.  
-It runs inside a FreeRTOS task loop within the ESP-IDF environment.
+This example illustrates the use of GPIO pins for both input and output on the ESP32.  
+Two push buttons are used to control two LEDs independently, allowing hands-on understanding of digital signal reading and control in embedded systems.
 
 ---
 
@@ -29,22 +41,25 @@ It runs inside a FreeRTOS task loop within the ESP-IDF environment.
 
 ## ⚙️ Requirements
 
-- **ESP32 Development Board**  
-- **ESP-IDF** (version 5.0 or newer)  
-- **Two LEDs** (with current-limiting resistors)  
-- **Two Push Buttons**  
-- Basic wiring tools and USB cable  
+- ESP32 Development Board  
+- ESP-IDF installed (v5.0 or later)  
+- Two LEDs with resistors  
+- Two push buttons  
+- Basic jumper wires and breadboard  
+- USB cable for flashing and monitoring  
 
 ---
 
 ## 🚀 How It Works
 
-1. Each GPIO pin is reset and configured (LEDs → output, Buttons → input).  
-2. The firmware continuously reads the state of both buttons.  
-3. When a button reads **LOW (0)** → the corresponding LED turns **ON**.  
-4. When it reads **HIGH (1)** → the LED turns **OFF**.  
-5. This logic repeats indefinitely inside a loop.
+1. Initialize and configure GPIO pins:
+   - LEDs → Output mode  
+   - Buttons → Input mode  
+2. Continuously read button states in an infinite loop.  
+3. When a button reads **LOW (pressed)**, the corresponding LED turns **ON**.  
+4. When it reads **HIGH (released)**, the LED turns **OFF**.  
+5. The logic assumes pull-up resistors are enabled.
 
-This behavior assumes the buttons are wired with **pull-up resistors** (internal or external).
+This demonstrates simple digital input-output control using ESP-IDF’s GPIO driver.
 
 ---
